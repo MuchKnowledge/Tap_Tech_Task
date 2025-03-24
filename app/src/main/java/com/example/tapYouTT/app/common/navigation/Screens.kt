@@ -1,8 +1,7 @@
-package com.example.tapYouTT.app.core.navigation
+package com.example.tapYouTT.app.common.navigation
 
 import android.content.Intent
 import com.example.tapYouTT.app.feature.main.domain.model.PointItem
-import com.example.tapYouTT.app.feature.main.presentation.MainActivity
 import com.example.tapYouTT.app.feature.result.presentation.ResultActivity
 import com.github.terrakok.cicerone.androidx.ActivityScreen
 

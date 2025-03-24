@@ -1,6 +1,6 @@
 package com.example.tapYouTT.app.feature.main.data.repository
 
-import com.example.tapYouTT.app.common.util.mappers.PointsMapper
+import com.example.tapYouTT.app.feature.main.data.mappers.PointsMapper
 import com.example.tapYouTT.app.core.api.ApiService
 import com.example.tapYouTT.app.feature.main.domain.model.PointItem
 import com.example.tapYouTT.app.feature.main.domain.repository.PointsRepository

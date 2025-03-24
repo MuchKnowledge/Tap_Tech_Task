@@ -57,15 +57,15 @@ class GraphView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
         val height = height.toFloat()
         val maxY = points.maxOf { it.y }
         val minY = points.minOf { it.y }
-        val pointSpacing = 100f // Фиксированное расстояние между точками
+        val pointSpacing = 100f
 
         val path = android.graphics.Path()
         var first = true
 
         points.forEachIndexed { index, point ->
-            val x = index * pointSpacing * scale // Фиксированное расстояние по X
+            val x = index * pointSpacing * scale
             val y = if (maxY == minY) {
-                height / 2f // Если все Y одинаковы, центрируем
+                height / 2f
             } else {
                 (height - ((point.y - minY) / (maxY - minY) * height * scale)).toFloat()
             }

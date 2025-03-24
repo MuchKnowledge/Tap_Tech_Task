@@ -11,6 +11,5 @@ class GetPointsUseCase @Inject constructor(
 
     operator fun invoke(count: Int): Single<List<PointItem>> {
         return pointsRepository.getPoints(count)
-            .map { points -> points.sortedBy { it.x } }
     }
 }

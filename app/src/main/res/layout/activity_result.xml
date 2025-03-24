@@ -3,17 +3,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pointsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="8dp">
-
-        <TableLayout
-            android:id="@+id/pointsTable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+        android:layout_weight="1" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -21,7 +15,8 @@
         android:layout_weight="1">
 
         <com.example.tapYouTT.app.feature.result.presentation.GraphView
-            android:id="@+id/graphView"
+            android:layout_marginTop="8dp"
+            android:id="@+id/graph_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
     </HorizontalScrollView>

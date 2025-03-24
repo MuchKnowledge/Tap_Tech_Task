@@ -8,6 +8,9 @@ import moxy.viewstate.strategy.StateStrategyType
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface MainView : MvpView {
 
-    fun showError(message: String)
+    fun showCountError()
+    fun showNetworkError(message: String)
     fun navigateToResult(points: List<PointItem>)
+    fun showLoading()
+    fun hideLoading()
 }

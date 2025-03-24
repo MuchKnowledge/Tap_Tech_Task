@@ -6,11 +6,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import com.example.tapYouTT.R
 import com.example.tapYouTT.app.App.Companion.appComponent
 import com.example.tapYouTT.app.common.util.extensions.safeClick
-import com.example.tapYouTT.app.core.navigation.Screens
+import com.example.tapYouTT.app.common.util.extensions.shortToast
+import com.example.tapYouTT.app.common.navigation.Screens
 import com.example.tapYouTT.app.feature.main.domain.model.PointItem
 import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -42,7 +42,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     private val navigator: Navigator = AppNavigator(this, -1)
 
     private lateinit var goButton: Button
-    private lateinit var countEt: EditText
+    private lateinit var countEdit: EditText
     private lateinit var loadingIndicator: ProgressBar
     private lateinit var loadingOverlay: View
     private lateinit var loadingContainer: View
@@ -58,9 +58,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         setListeners()
     }
 
-    override fun showError(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    override fun showCountError() {
+        shortToast(getString(R.string.main_activity_value_error))
         hideLoading()
+    }
+
+    override fun showNetworkError(error: String) {
+        shortToast(error)
+        finish()
     }
 
     override fun navigateToResult(points: List<PointItem>) {
@@ -79,12 +84,12 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     }
 
     private fun initView() {
-        goButton = findViewById(R.id.goButton)
-        countEt = findViewById(R.id.count_et)
-        loadingIndicator = findViewById(R.id.loadingIndicator)
-        loadingOverlay = findViewById(R.id.loadingOverlay)
-        loadingContainer = findViewById(R.id.loadingContainer)
-        loadingText = findViewById(R.id.loadingText)
+        goButton = findViewById(R.id.go_button)
+        countEdit = findViewById(R.id.count_edit)
+        loadingIndicator = findViewById(R.id.loading_indicator)
+        loadingOverlay = findViewById(R.id.loading_overlay)
+        loadingContainer = findViewById(R.id.loading_container)
+        loadingText = findViewById(R.id.loading_text)
     }
 
     private fun setNavigator() {
@@ -93,19 +98,14 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
     private fun setListeners() {
         goButton.safeClick {
-            val count = countEt.text.toString().toIntOrNull()
-            if (count in MIN_COUNT_VALUE ..  MAX_COUNT_VALUE && count != null) {
-                showLoading()
-                presenter.onGoClicked(count)
-            } else {
-                presenter.showError(getString(R.string.value_error))
-            }
+            val countText = countEdit.text.toString().toIntOrNull() ?: 0
+            presenter.onButtonClicked(countText)
         }
     }
 
-    private fun showLoading() {
+    override fun showLoading() {
         goButton.isEnabled = false
-        countEt.isEnabled = false
+        countEdit.isEnabled = false
 
         loadingOverlay.apply {
             alpha = 0f
@@ -120,9 +120,9 @@ class MainActivity : MvpAppCompatActivity(), MainView {
         }
     }
 
-    private fun hideLoading() {
+    override fun hideLoading() {
         goButton.isEnabled = true
-        countEt.isEnabled = true
+        countEdit.isEnabled = true
 
         loadingOverlay.animate()
             .alpha(0f)
@@ -135,11 +135,5 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             .setDuration(200)
             .withEndAction { loadingContainer.visibility = View.GONE }
             .start()
-    }
-
-    companion object {
-
-        const val MIN_COUNT_VALUE = 1
-        const val MAX_COUNT_VALUE = 1000
     }
 }

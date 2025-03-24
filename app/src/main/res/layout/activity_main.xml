@@ -4,17 +4,17 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/hint_tv"
+        android:id="@+id/hint_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/hint_text"
+        android:text="@string/main_activity_hint_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/count_et"
+        android:id="@+id/count_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -22,14 +22,14 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hint_tv" />
+        app:layout_constraintTop_toBottomOf="@id/hint_text" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/goButton"
+        android:id="@+id/go_button"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:text="@string/button_text"
+        android:text="@string/main_activity_button_text"
         android:layout_margin="16dp"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
-        android:id="@+id/loadingOverlay"
+        android:id="@+id/loading_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#80000000"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loadingContainer"
+        android:id="@+id/loading_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
-            android:id="@+id/loadingIndicator"
+            android:id="@+id/loading_indicator"
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,16 +66,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/loadingText"
+            android:id="@+id/loading_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/loading_text"
+            android:text="@string/main_activity_loading_text"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loadingIndicator" />
+            app:layout_constraintTop_toBottomOf="@id/loading_indicator" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

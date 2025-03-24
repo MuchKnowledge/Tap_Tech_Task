@@ -2,8 +2,8 @@
     <string name="app_name">Tap You TT</string>
 
     <!--Main Activity-->
-    <string name="hint_text">Введите количество точек</string>
-    <string name="button_text">Поехали!</string>
-    <string name="loading_text">Загрузка...</string>
-    <string name="value_error">От 1 до 1000</string>
+    <string name="main_activity_hint_text">Введите количество точек</string>
+    <string name="main_activity_button_text">Поехали!</string>
+    <string name="main_activity_loading_text">Загрузка...</string>
+    <string name="main_activity_value_error">От 1 до 1000</string>
 </resources>

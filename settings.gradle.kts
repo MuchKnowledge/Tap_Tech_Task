@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "InteractiveVenturesTechTask"
+rootProject.name = "TapYouTT"
 include(":app")

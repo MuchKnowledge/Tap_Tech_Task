@@ -1,4 +1,4 @@
-package com.example.tapYouTT.app.common.util.mappers
+package com.example.tapYouTT.app.feature.main.data.mappers
 
 import com.example.tapYouTT.app.feature.main.data.model.PointResponseItem
 import com.example.tapYouTT.app.feature.main.domain.model.PointItem
