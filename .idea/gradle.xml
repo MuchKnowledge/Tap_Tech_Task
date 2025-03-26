@@ -10,7 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/api" />
+            <option value="$PROJECT_DIR$/common-ui" />
+            <option value="$PROJECT_DIR$/common-util" />
+            <option value="$PROJECT_DIR$/entity" />
+            <option value="$PROJECT_DIR$/legacy" />
+            <option value="$PROJECT_DIR$/modern" />
           </set>
         </option>
       </GradleProjectSettings>

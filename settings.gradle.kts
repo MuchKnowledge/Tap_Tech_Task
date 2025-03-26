@@ -20,4 +20,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TapYouTT"
-include(":app")
+include(":modern")
+include(":legacy")
+include(":common-ui")
+include(":common-util")
+include(":api")
+include(":entity")
