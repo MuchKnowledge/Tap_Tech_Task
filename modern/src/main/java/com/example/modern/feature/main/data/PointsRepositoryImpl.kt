@@ -10,17 +10,10 @@ class PointsRepositoryImpl @Inject constructor(
 ) : PointsRepository {
 
     override fun getPoints(count: Int): List<PointEntity> {
-        return try {
-            val response = apiService.getPoints(count).execute()
-            if (response.isSuccessful) {
-                response.body()?.points?.mapNotNull {
-                    PointsMapper.toPointEntity(it)
-                } ?: emptyList()
-            } else {
-                emptyList()
-            }
-        } catch (e: Exception) {
-            emptyList()
-        }
+        val response = apiService.getPoints(count).execute()
+
+        return response.body()?.points?.mapNotNull {
+            PointsMapper.toPointEntity(it)
+        } ?: emptyList()
     }
 }

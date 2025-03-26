@@ -10,6 +10,8 @@ class LegacyGetPointsUseCaseImpl @Inject constructor(
 ) : GetPointsUseCase {
 
     override operator fun invoke(count: Int): List<PointEntity> {
+        if (count <= 0) throw IllegalStateException("IllegalState")
+
         return pointsRepository.getPoints(count)
     }
 }

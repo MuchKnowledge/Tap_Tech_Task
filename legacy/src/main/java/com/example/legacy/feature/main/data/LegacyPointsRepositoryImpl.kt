@@ -11,6 +11,7 @@ class LegacyPointsRepositoryImpl @Inject constructor(
 
     override fun getPoints(count: Int): List<PointEntity> {
         val response = apiService.getPoints(count).execute()
+
         return response.body()?.points?.mapNotNull {
             LegacyPointsMapper.toPointEntity(it)
         } ?: emptyList()

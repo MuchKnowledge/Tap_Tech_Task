@@ -137,7 +137,7 @@ class LegacyMainActivity : MvpAppCompatActivity(), LegacyMainView {
             .start()
     }
 
-    companion object {
+    private companion object {
         const val ANIMATION_DURATION = 200L
     }
 }

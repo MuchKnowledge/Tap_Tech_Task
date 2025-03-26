@@ -99,7 +99,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             .start()
     }
 
-    companion object {
+    private companion object {
         const val ANIMATION_DURATION = 200L
     }
 }
